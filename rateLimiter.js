@@ -52,7 +52,7 @@ function upsertCounter(cache_key, next) {
         'count': 1,
         'startTime': moment().unix()
     };
-    redisClient.set(cache_key, JSON.stringify(counterObj),'EX', 10);
+    redisClient.set(cache_key, JSON.stringify(counterObj));
     redisClient.expire(cache_key, DURATION_IN_MIN*60);
     next();
 }
